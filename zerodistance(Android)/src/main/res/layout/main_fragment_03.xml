@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/country_lvcountry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:divider="#ffDADADA"
+            android:dividerHeight="1px" />
+
+        <cn.hzyc.im.ui.view.LetterBar
+            android:id="@+id/sidrbar"
+            android:layout_width="25dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_show_pressed_letter"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:visibility="gone"
+        android:textSize="30sp" />
+
+</RelativeLayout>

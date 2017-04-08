@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_edit_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+
+        <!-- 账号 -->
+
+        <cn.hzyc.im.ui.view.EditLayout
+            android:hint="请输入你的电子邮箱："
+            android:id="@+id/registerEmail"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:imeOptions="actionNext" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:id="@+id/registerYzm"
+                android:hint="邮箱验证码"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_btn"
+                android:id="@+id/registerGetEmailYz"
+                android:onClick="check"
+                android:text="获取验证码"/>
+
+        </LinearLayout>
+
+        <!-- 密码 -->
+
+        <cn.hzyc.im.ui.view.EditLayout
+            android:id="@+id/el_password"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dip"
+            android:background="@color/white"
+            android:gravity="center_vertical" />
+
+        <!-- 密码 -->
+
+        <cn.hzyc.im.ui.view.EditLayout
+            android:id="@+id/el_password2"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical" />
+        <!-- 注册 -->
+
+        <Button
+            android:id="@+id/btn_upload_photo"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/selector_btn"
+            android:onClick="onClick"
+            android:text="上传脸部信息"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        <!-- 注册 -->
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/selector_btn"
+            android:onClick="onClick"
+            android:text="注 册"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

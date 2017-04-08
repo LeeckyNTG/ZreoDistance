@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.cc.ccu.mapper.FriendMapper" >
+  <resultMap id="BaseResultMap" type="cn.cc.ccu.po.Friend" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="usernumber" property="usernumber" jdbcType="VARCHAR" />
+    <result column="friendnumber" property="friendnumber" jdbcType="VARCHAR" />
+    <result column="groupid" property="groupid" jdbcType="VARCHAR" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, usernumber, friendnumber, groupid, notes
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from friend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+   <select id="SelectFriendByNumber" resultMap="BaseResultMap" parameterType="String" >
+    select 
+    <include refid="Base_Column_List" />
+    from friend
+    where usernumber = #{number,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="SelectFriendByInsert" resultMap="BaseResultMap" parameterType="String" >
+    select 
+    <include refid="Base_Column_List" />
+    from friend
+    where usernumber = #{usernumber,jdbcType=VARCHAR} and friendnumber=#{friendnumber,jdbcType=VARCHAR}
+  </select>
+  
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from friend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  
+  
+  <delete id="deleteFriend" parameterType="cn.cc.ccu.po.Friend" >
+    delete from friend
+    where usernumber = #{usernumber,jdbcType=VARCHAR} and friendnumber=#{friendnumber,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  
+  
+  <insert id="insert" parameterType="cn.cc.ccu.po.Friend" >
+    insert into friend (id, usernumber, friendnumber, 
+      groupid, notes)
+    values (#{id,jdbcType=INTEGER}, #{usernumber,jdbcType=VARCHAR}, #{friendnumber,jdbcType=VARCHAR}, 
+      #{groupid,jdbcType=VARCHAR}, #{notes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cc.ccu.po.Friend" >
+    insert into friend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="usernumber != null" >
+        usernumber,
+      </if>
+      <if test="friendnumber != null" >
+        friendnumber,
+      </if>
+      <if test="groupid != null" >
+        groupid,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="usernumber != null" >
+        #{usernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="friendnumber != null" >
+        #{friendnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cc.ccu.po.Friend" >
+    update friend
+    <set >
+      <if test="usernumber != null" >
+        usernumber = #{usernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="friendnumber != null" >
+        friendnumber = #{friendnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        groupid = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cc.ccu.po.Friend" >
+    update friend
+    set usernumber = #{usernumber,jdbcType=VARCHAR},
+      friendnumber = #{friendnumber,jdbcType=VARCHAR},
+      groupid = #{groupid,jdbcType=VARCHAR},
+      notes = #{notes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.cc.ccu.mapper.ChattranscriptsMapper" >
+  <resultMap id="BaseResultMap" type="cn.cc.ccu.po.Chattranscripts" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sendnumber" property="sendnumber" jdbcType="VARCHAR" />
+    <result column="receivenumber" property="receivenumber" jdbcType="VARCHAR" />
+    <result column="sendtime" property="sendtime" jdbcType="VARCHAR" />
+    <result column="message" property="message" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sendnumber, receivenumber, sendtime, message
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chattranscripts
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectChattranscriptsByUsernumber" resultMap="BaseResultMap" parameterType="cn.cc.ccu.po.Chattranscripts" >  
+    SELECT <include refid="Base_Column_List" /> FROM chattranscripts 
+    WHERE (sendnumber=#{sendnumber,jdbcType=VARCHAR} OR receivenumber=#{sendnumber,jdbcType=VARCHAR})
+     AND (sendnumber=#{receivenumber,jdbcType=VARCHAR} OR receivenumber=#{receivenumber,jdbcType=VARCHAR}) 
+     ORDER BY sendtime ASC
+  </select>
+  
+  
+  
+ 
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chattranscripts
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.cc.ccu.po.Chattranscripts" >
+    insert into chattranscripts (id, sendnumber, receivenumber, 
+      sendtime, message)
+    values (#{id,jdbcType=INTEGER}, #{sendnumber,jdbcType=VARCHAR}, #{receivenumber,jdbcType=VARCHAR}, 
+      #{sendtime,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cc.ccu.po.Chattranscripts" >
+    insert into chattranscripts
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sendnumber != null" >
+        sendnumber,
+      </if>
+      <if test="receivenumber != null" >
+        receivenumber,
+      </if>
+      <if test="sendtime != null" >
+        sendtime,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sendnumber != null" >
+        #{sendnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="receivenumber != null" >
+        #{receivenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cc.ccu.po.Chattranscripts" >
+    update chattranscripts
+    <set >
+      <if test="sendnumber != null" >
+        sendnumber = #{sendnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="receivenumber != null" >
+        receivenumber = #{receivenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        sendtime = #{sendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cc.ccu.po.Chattranscripts" >
+    update chattranscripts
+    set sendnumber = #{sendnumber,jdbcType=VARCHAR},
+      receivenumber = #{receivenumber,jdbcType=VARCHAR},
+      sendtime = #{sendtime,jdbcType=VARCHAR},
+      message = #{message,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

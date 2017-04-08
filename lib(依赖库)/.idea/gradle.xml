@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:\Android2.2\Android Studio\gradle\gradle-2.14.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/.." />
+            <option value="$PROJECT_DIR$/../facedetect" />
+            <option value="$PROJECT_DIR$/../facedetect2" />
+            <option value="$PROJECT_DIR$/../facelogin" />
+            <option value="$PROJECT_DIR$/../facetest" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/../libzxing" />
+            <option value="$PROJECT_DIR$/../musicplay" />
+            <option value="$PROJECT_DIR$/../newtest" />
+            <option value="$PROJECT_DIR$/../progressbar" />
+            <option value="$PROJECT_DIR$/../qrtest" />
+            <option value="$PROJECT_DIR$/../smstest" />
+            <option value="$PROJECT_DIR$/../webview_1" />
+            <option value="$PROJECT_DIR$/../zerodistance" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

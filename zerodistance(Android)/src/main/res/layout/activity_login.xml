@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/middle_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dip"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip" >
+
+        <RelativeLayout
+            android:id="@+id/layout_edit_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:orientation="vertical" >
+
+            <!-- 账号 -->
+
+            <cn.hzyc.im.ui.view.EditLayout
+                android:id="@+id/et_account"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:layout_marginLeft="0dip"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:imeOptions="actionNext" />
+
+            <!-- 密码 -->
+
+            <cn.hzyc.im.ui.view.EditLayout
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:layout_below="@id/et_account"
+                android:background="@color/white"
+                android:layout_marginLeft="0dip"
+                android:layout_marginTop="10dip"
+                android:gravity="center_vertical" />
+        </RelativeLayout>
+
+        <!-- 登录 -->
+
+        <Button
+            android:id="@+id/ib_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:layout_below="@id/layout_edit_text"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/selector_btn"
+            android:onClick="onClick"
+            android:text="登   录"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:autoLink="all"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:autoLink="all"
+            android:gravity="center"
+            android:text="忘记密码"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login_cover"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/setting_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:onClick="onClick"
+            android:text="注册"
+            android:textColor="#586B95"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
